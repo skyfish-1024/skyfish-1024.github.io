@@ -33,6 +33,8 @@ jobs:
         with:
           publish_dir: ./docs # 部署打包后的 dist 目录
           github_token: ${{ secrets.DEPLOY_SECRET }} # secret 名
+          publish_branch: 'gh-pages'
+          destination_dir: './docs'
           # user_name: 'skyfish-1024'
           # user_email: '1982452293@qq.com'
           commit_message: 自动部署 # 部署时的 git 提交信息，自由填写
