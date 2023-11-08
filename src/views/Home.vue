@@ -1,6 +1,6 @@
 <template>
-	<div><HelloWorld></HelloWorld></div>
+	<div><StrawberryBear></StrawberryBear></div>
 </template>
 <script setup>
-import HelloWorld from '../components/HelloWorld.vue';
+import StrawberryBear from '../components/demos/StrawberryBear.vue';
 </script>

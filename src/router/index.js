@@ -8,6 +8,26 @@ const router = createRouter({
 			name: 'home',
 			component: Home,
 		},
+		{
+			path: '/home',
+			name: 'home',
+			component: () => import('../views/Home.vue'),
+		},
+		{
+			path: '/blog',
+			name: 'blog',
+			component: () => import('../views/BlogView.vue'),
+		},
+		{
+			path: '/about',
+			name: 'about',
+			component: () => import('../views/AboutView.vue'),
+		},
+		{
+			path: '/cssStyle',
+			name: 'cssStyle',
+			component: () => import('../views/CssStyle.vue'),
+		},
 		// {
 		// 	path: '/canvas',
 		// 	name: 'canvas',
@@ -23,10 +43,10 @@ const router = createRouter({
 		// 		},
 		// 	],
 		// },
-		// {
-		// 	path: '/:pathMatch(.*)',
-		// 	redirect: '/home',
-		// },
+		{
+			path: '/:pathMatch(.*)',
+			redirect: '/home',
+		},
 	],
 });
 
