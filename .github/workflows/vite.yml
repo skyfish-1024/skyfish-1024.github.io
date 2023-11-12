@@ -24,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          npm init vite@latest
+          npm install vite@latest
           npm install
           npm run build
       # 部署到 GitHub pages
