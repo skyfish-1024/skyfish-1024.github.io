@@ -5,6 +5,7 @@
 </template>
 <script setup>
 import { ref, onMounted, nextTick } from 'vue';
+import strawberry from '@/assets/img/strawberry.png';
 function createHDCanvas(canvas, w, h) {
 	const ratio = window.devicePixelRatio || 1;
 	canvas.width = w * ratio; // 实际渲染像素
@@ -20,16 +21,16 @@ function createHDCanvas(canvas, w, h) {
 const init = () => {
 	// var w = document.documentElement.clientWidth;
 	// var h = document.documentElement.clientHeight;
-	var w = 320;
+	var w = 600;
 	var h = 600;
 	var canvas = createHDCanvas(document.getElementById('canvas'), w, h);
 	var ctx = canvas.getContext('2d');
 
 	//笛卡尔坐标系
-	ctx.translate(w / 2, h / 2);
+	ctx.translate(w / 2, h / 2 + 20);
 	ctx.scale(1, -1);
 
-	ctx.lineWidth = 5;
+	ctx.lineWidth = 2;
 	ctx.lineJoin = 'round';
 	ctx.lineCap = 'round';
 	ctx.setLineDash([]);
@@ -199,7 +200,7 @@ const init = () => {
 	ctx.bezierCurveTo(-80, -60, -90, -110, -60, -130);
 	ctx.quadraticCurveTo(0, -180, 60, -130);
 	ctx.bezierCurveTo(90, -110, 80, -60, 50, 10);
-	ctx.quadraticCurveTo(0, -10, -50, 10);
+	ctx.quadraticCurveTo(0, 0, -50, 10);
 	ctx.closePath();
 	ctx.fillStyle = '#E9D6C6';
 	ctx.fill();
@@ -218,6 +219,32 @@ const init = () => {
 	ctx.quadraticCurveTo(140, 0, 150, -40);
 	ctx.fill();
 	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.fillStyle = '#D06698';
+	ctx.moveTo(-110, 42);
+	ctx.quadraticCurveTo(-140, 0, -150, -40);
+	ctx.quadraticCurveTo(-130, -20, -107, -40);
+	ctx.quadraticCurveTo(-110, -40, -90, 28);
+	ctx.quadraticCurveTo(-90, 25, -110, 42);
+
+	ctx.moveTo(110, 42);
+	ctx.quadraticCurveTo(140, 0, 150, -40);
+	ctx.quadraticCurveTo(130, -20, 107, -40);
+	ctx.quadraticCurveTo(110, -40, 90, 28);
+	ctx.quadraticCurveTo(90, 25, 110, 42);
+	ctx.fill();
+	ctx.stroke();
+
+	//绘制草莓
+	var img = new Image();
+	img.src = strawberry;
+
+	img.onload = () => {
+		ctx.scale(1, -1);
+		ctx.drawImage(img, 25, 20, 40, 40);
+		console.log(img);
+	};
 };
 onMounted(() => {
 	init();

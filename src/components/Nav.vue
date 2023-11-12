@@ -1,6 +1,9 @@
 <template>
 	<div class="nav">
-		<div>SkyFish</div>
+		<div class="logo" @click="linkTo('/home')">
+			<img src="../assets/logo.png" alt="" />
+			SkyFish
+		</div>
 		<ul class="navList">
 			<li v-for="item in navList" :key="item.name" @click="linkTo(item.path)">
 				{{ item.name }}
@@ -33,6 +36,17 @@ const linkTo = (path) => {
 	color: lightblue;
 	display: flex;
 	justify-content: space-between;
+	.logo {
+		cursor: pointer;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		img {
+			height: 80%;
+			aspect-ratio: 1;
+		}
+	}
 	.navList {
 		list-style: none;
 		display: flex;
