@@ -1,1 +1,0 @@
-import{o as e,a as s,c as t,b as a,d as c}from"./index-ea1d57c5.js";const o={class:"cssStyle"},l={__name:"CssStyle",setup(n){return e(()=>{init()}),(_,r)=>(s(),t("div",o,[a(c)]))}};export{l as default};
